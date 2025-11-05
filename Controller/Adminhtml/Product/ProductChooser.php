@@ -1,6 +1,6 @@
 <?php
 
-namespace MagentoHackathon\ReusableProductImages\Controller\Adminhtml\ReusableImages;
+namespace MagentoHackathon\ReusableProductImages\Controller\Adminhtml\Product;
 
 use Magento\Catalog\Api\ProductRepositoryInterface;
 use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory as ProductCollectionFactory;

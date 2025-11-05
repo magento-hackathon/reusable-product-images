@@ -3,7 +3,7 @@
         xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
     <router id="admin">
         <route id="reusableimages" frontName="reusableimages">
-            <module name="MagentoHackathon_ReusableProductImages"/>
+            <module name="MagentoHackathon_ReusableProductImages" before="Magento_Backend"/>
         </route>
     </router>
 </config>
