@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- UpdateHandler extends CreateHandler, so this plugin covers both new and existing products -->
+    <type name="Magento\Catalog\Model\Product\Gallery\CreateHandler">
+        <plugin name="magentoHackathonLinkReusedGalleryImages"
+                type="MagentoHackathon\ReusableProductImages\Plugin\LinkReusedGalleryImages"/>
+    </type>
+</config>

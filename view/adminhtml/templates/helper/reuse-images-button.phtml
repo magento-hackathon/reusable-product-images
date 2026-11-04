@@ -1,0 +1,27 @@
+<?php
+/**
+ * @var \Magento\Backend\Block\Template $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+
+if (!$block->getAuthorization()->isAllowed('MagentoHackathon_ReusableProductImages::reuse')) {
+    return;
+}
+
+$widgetConfig = [
+    'MagentoHackathon_ReusableProductImages/js/reuse-images' => [
+        'searchUrl' => $block->getUrl('reusableimages/product/productchooser'),
+        'imagesUrl' => $block->getUrl('reusableimages/product/usegallery'),
+        'excludeId' => (int) $block->getRequest()->getParam('id'),
+    ],
+];
+?>
+<div class="row reuse-images-button-container">
+    <button type="button"
+            class="action-secondary"
+            data-role="reuse-images-button"
+            title="<?= $escaper->escapeHtmlAttr(__('Reuse Images From Another Product')) ?>"
+            data-mage-init="<?= $escaper->escapeHtmlAttr(json_encode($widgetConfig, JSON_THROW_ON_ERROR)) ?>">
+        <span><?= $escaper->escapeHtml(__('Reuse Images From Another Product')) ?></span>
+    </button>
+</div>

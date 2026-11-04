@@ -1,0 +1,147 @@
+// Reuse Images From Another Product: button and slide-out
+
+// The upload area clipping that keeps the placeholder from catching this button's clicks is in reuse-images.js
+.reuse-images-button-container {
+    margin: 0 0 2rem;
+}
+
+.reuse-images-slide {
+    .reuse-images-search-field {
+        margin-bottom: 1rem;
+
+        .reuse-images-search {
+            width: 100%;
+        }
+    }
+
+    .reuse-images-message:empty {
+        display: none;
+    }
+
+    .reuse-images-message {
+        color: @color-gray40;
+        margin: 1rem 0;
+    }
+
+    .reuse-images-products {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            margin: 0;
+        }
+    }
+
+    .reuse-images-product {
+        align-items: center;
+        background: none;
+        border: 0;
+        border-bottom: 1px solid @color-gray89;
+        box-shadow: none;
+        display: flex;
+        gap: 1.5rem;
+        padding: 1rem;
+        text-align: left;
+        width: 100%;
+
+        &:hover,
+        &:focus {
+            background: @color-gray-light0;
+        }
+
+        img {
+            flex: 0 0 auto;
+            height: 50px;
+            object-fit: contain;
+            width: 50px;
+        }
+    }
+
+    .reuse-images-product-info {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        min-width: 0;
+    }
+
+    .reuse-images-product-name {
+        font-weight: @font-weight__semibold;
+    }
+
+    .reuse-images-product-sku,
+    .reuse-images-product-count {
+        color: @color-gray40;
+    }
+
+    .reuse-images-gallery-header {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .reuse-images-gallery-title {
+        flex: 1 1 auto;
+    }
+
+    .reuse-images-select-all {
+        align-items: center;
+        display: flex;
+        gap: .5rem;
+    }
+
+    .reuse-images-grid {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .reuse-images-item {
+        margin: 0;
+        position: relative;
+
+        input {
+            left: .75rem;
+            position: absolute;
+            top: .75rem;
+            z-index: 1;
+        }
+
+        label {
+            border: 1px solid @color-gray89;
+            cursor: pointer;
+            display: block;
+            padding: .5rem;
+        }
+
+        input:checked + label {
+            border-color: @color-blue-pure;
+            box-shadow: 0 0 0 1px @color-blue-pure;
+        }
+
+        img {
+            aspect-ratio: 1;
+            display: block;
+            object-fit: contain;
+            width: 100%;
+        }
+
+        &._added label {
+            cursor: default;
+            opacity: .5;
+        }
+    }
+
+    .reuse-images-item-label {
+        display: block;
+        margin-top: .5rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
