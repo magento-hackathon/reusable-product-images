@@ -1,27 +1,27 @@
 <?php
 /**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
+ * @var \Magento\Backend\Block\Template $block
+ * @var \Magento\Framework\Escaper $escaper
  */
 
-// phpcs:disable PHPCompatibility.Miscellaneous.RemovedAlternativePHPTags.MaybeASPOpenTagFound
-/**
- * @var $block \Magento\Catalog\Block\Adminhtml\Product\Helper\Form\Gallery\Content
- * @var \Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer
- */
+if (!$block->getAuthorization()->isAllowed('MagentoHackathon_ReusableProductImages::reuse')) {
+    return;
+}
 
-echo $this->getUrl('reusableimages/product/usegallery');
+$widgetConfig = [
+    'MagentoHackathon_ReusableProductImages/js/reuse-images' => [
+        'searchUrl' => $block->getUrl('reusableimages/product/productchooser'),
+        'imagesUrl' => $block->getUrl('reusableimages/product/usegallery'),
+        'excludeId' => (int) $block->getRequest()->getParam('id'),
+    ],
+];
 ?>
-
-<div class="row">
-    <div class="add-video-button-container">
-        <button id="add_video_button"
-                title="<?= $block->escapeHtmlAttr(__('Ditto Product Gallery')) ?>"
-                data-role="add-video-button"
-                type="button"
-                class="action-secondary"
-                data-ui-id="widget-button-1">
-            <span><?= $block->escapeHtml(__('Ditto Product Gallery')) ?></span>
-        </button>
-    </div>
+<div class="row reuse-images-button-container">
+    <button type="button"
+            class="action-secondary"
+            data-role="reuse-images-button"
+            title="<?= $escaper->escapeHtmlAttr(__('Reuse Images From Another Product')) ?>"
+            data-mage-init="<?= $escaper->escapeHtmlAttr(json_encode($widgetConfig, JSON_THROW_ON_ERROR)) ?>">
+        <span><?= $escaper->escapeHtml(__('Reuse Images From Another Product')) ?></span>
+    </button>
 </div>

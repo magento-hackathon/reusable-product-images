@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 /**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
+ * Adds the "Reuse Images From Another Product" button to the Images And Videos section.
+ * The Magento_ProductVideo gallery template renders the "additional_buttons" child inside the gallery.
+ * The rest of this declaration repeats Magento_ProductVideo's product_form.xml.
  */
 -->
 <form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
@@ -25,7 +26,9 @@
                     </argument>
                 </arguments>
                 <block class="Magento\ProductVideo\Block\Adminhtml\Product\Edit\NewVideo" name="new-video" template="Magento_ProductVideo::product/edit/slideout/form.phtml"/>
-                <block name="additional_buttons" template="MagentoHackathon_ReusableProductImages::helper/reuse-images-button.phtml" />
+                <block name="additional_buttons"
+                       class="Magento\Backend\Block\Template"
+                       template="MagentoHackathon_ReusableProductImages::helper/reuse-images-button.phtml"/>
             </block>
         </block>
     </htmlContent>

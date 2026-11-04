@@ -4,6 +4,10 @@
     <module name="MagentoHackathon_ReusableProductImages">
         <sequence>
             <module name="Magento_Backend"/>
+            <module name="Magento_Catalog"/>
+            <module name="Magento_Ui"/>
+            <!-- Our product_form.xml extends the gallery block that Magento_ProductVideo declares -->
+            <module name="Magento_ProductVideo"/>
         </sequence>
     </module>
 </config>

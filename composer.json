@@ -1,10 +1,16 @@
 {
   "name": "magento-hackathon/reusable-product-images",
   "version": "1.0.0",
-  "description": "N/A",
+  "description": "Reuse existing product gallery images on other products without duplicating the image files.",
   "type": "magento2-module",
   "require": {
-    "magento/framework": "*"
+    "php": ">=8.1",
+    "magento/framework": "*",
+    "magento/module-backend": "*",
+    "magento/module-catalog": "*",
+    "magento/module-product-video": "*",
+    "magento/module-store": "*",
+    "magento/module-ui": "*"
   },
   "license": [
     "Proprietary"
