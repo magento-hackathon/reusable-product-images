@@ -8,7 +8,6 @@ use Magento\Catalog\Api\Data\ProductInterface;
 use Magento\Catalog\Model\Product;
 use Magento\Catalog\Model\Product\Gallery\CreateHandler;
 use Magento\Catalog\Model\ResourceModel\Product\Gallery;
-use Magento\Catalog\Model\ResourceModel\Product\MediaGalleryValue;
 use Magento\Framework\EntityManager\MetadataPool;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Store\Model\Store;
@@ -32,7 +31,6 @@ class LinkReusedGalleryImages
 
     public function __construct(
         private readonly Gallery $galleryResource,
-        private readonly MediaGalleryValue $mediaGalleryValue,
         private readonly MetadataPool $metadataPool
     ) {
     }
@@ -104,7 +102,7 @@ class LinkReusedGalleryImages
 
             if ($storeId !== Store::DEFAULT_STORE_ID) {
                 // Core only writes the default-scope row for images it considers new, so add it here
-                $this->mediaGalleryValue->saveGalleryStoreValue([
+                $this->galleryResource->insertGalleryValueInStore([
                     'value_id' => $valueId,
                     'store_id' => Store::DEFAULT_STORE_ID,
                     $linkField => $linkId,
